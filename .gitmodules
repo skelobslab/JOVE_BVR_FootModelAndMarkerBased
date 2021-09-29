@@ -1,0 +1,3 @@
+[submodule "OtherFunctions/createInventorSuite"]
+	path = OtherFunctions/createInventorSuite
+	url = https://github.com/skelobslab/createInventorSuite

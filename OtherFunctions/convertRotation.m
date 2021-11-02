@@ -59,14 +59,14 @@ switch intype
     case 'autoscoper'
         
         nfr = size(inData,1);
-        T = zeros(4,4,nfr);
+        T = repmat(eye(4,4),1,1,nfr);
         for i = 1:nfr
             T(1:4,1:4,i) = reshape(inData(i,1:16),4,4);
         end
     case 'autoscoperRows'
         
         nfr = size(inData,1);
-        T = zeros(4,4,nfr);
+        T = repmat(eye(4,4),1,1,nfr);
         for i = 1:nfr
             T(1:4,1:4,i) = reshape(inData(i,1:16)',4,4);
 %             T(4,4,i) = 1;
@@ -74,7 +74,7 @@ switch intype
         
     case 'anim'
         nfr = size(inData,1)/4;
-        T = zeros(4,4,nfr);
+        T = repmat(eye(4,4),1,1,nfr);
         ct = 1;
         for i = 1:4:size(inData,1)
             T(1:3,1:3,ct) = inData(i:i+2,1:3);
@@ -85,7 +85,7 @@ switch intype
         
     case '4x4 stacked'
         nfr = size(inData,1)/4;
-        T = zeros(4,4,nfr);
+        T = repmat(eye(4,4),1,1,nfr);
         ct = 1;
         for i = 1:4:size(inData,1)
             T(1:4,1:4,ct) = inData(i:i+3,1:4);
@@ -97,7 +97,7 @@ switch intype
     case 'quaternion'
 
         nfr = size(inData,1);
-        T = zeros(4,4,nfr);
+        T = repmat(eye(4,4),1,1,nfr);
         for i = 1:nfr
             if any(isnan(inData(i,:)))
                 T(:,:,i) = nan(4,4);
